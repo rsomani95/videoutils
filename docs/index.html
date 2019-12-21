@@ -105,7 +105,7 @@ However, you can define precisely which frames you'd like to grab in a number of
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-Grab-the-first-50-frames">1. Grab the first 50 frames<a class="anchor-link" href="#1.-Grab-the-first-50-frames">&#182;</a></h3>
+<h3 id="Grab-the-first-n-frames">Grab the first <code>n</code> frames<a class="anchor-link" href="#Grab-the-first-n-frames">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -114,8 +114,9 @@ However, you can define precisely which frames you'd like to grab in a number of
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span>  <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">end_idx</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">target_frames</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">end_idx</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">target_frames</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
 
 <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
@@ -154,7 +155,7 @@ However, you can define precisely which frames you'd like to grab in a number of
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Grab-every-5th-frame">Grab every 5th frame<a class="anchor-link" href="#Grab-every-5th-frame">&#182;</a></h3>
+<h3 id="Grab-every-nth-frame">Grab every <code>n</code>th frame<a class="anchor-link" href="#Grab-every-nth-frame">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -163,7 +164,8 @@ However, you can define precisely which frames you'd like to grab in a number of
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">frame_stride</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">end_idx</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">frame_stride</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">end_idx</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 

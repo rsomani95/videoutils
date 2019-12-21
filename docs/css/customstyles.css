@@ -1,9 +1,61 @@
-.anchor-link {
-    display: none;
+@font-face {
+	font-family: "montserrat-regular";
+	src: url("fonts/Montserrat-Regular.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "montserrat-thin";
+	src: url("fonts/Montserrat-Thin.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "glacial-indifference";
+	src: url("fonts/GlacialIndifference-Regular.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "spacegrotesk-light";
+	src: url("fonts/SpaceGrotesk-Light.ttf");
+}
+
+@font-face {
+	font-family: "spacegrotesk-regular";
+	src: url("fonts/SpaceGrotesk-Regular.ttf");
+}
+
+@font-face {
+	font-family: "cmu-classical";
+	src: url("fonts/CMU-Classifcal-Serif-Italic.ttf");
+}
+
+@font-face {
+	font-family: "quatroccento";
+	src: url("fonts/quattrocento_regular.ttf");
+}
+
+code, kbd, pre, samp {
+  font-family: monospace;
 }
 
 body {
-    font-size:15px;
+    font-family: 'montserrat-regular', sans-serif;
+    //font-weight: 700;
+    font-size:11px;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+  //font-family: 'montserrat-regular', sans-serif;
+  text-align: center !important;
+}
+
+/*
+.summary {
+  font-family: 'cmu-classical', sans-serif;
+}
+*/
+
+.anchor-link {
+    display: none;
 }
 
 .bs-callout {
@@ -327,7 +379,9 @@ div#toc ul li ul li.hide_content::before {
 
 div#toc >ul::before {
     content: "Table of Contents";
-    font-weight: 500;
+		font-size: 105%;
+		text-decoration: underline;
+    font-weight: 800;
     color: #555;
     text-align:center;
     margin-left:auto;
@@ -393,7 +447,7 @@ a.accordion-toggle, a.accordion-collapsed {
 }
 
 .nav > li li {
-    margin: 2px 0;
+    margin: 0px 0;
 }
 
 .nav a {
@@ -420,13 +474,14 @@ a.accordion-toggle, a.accordion-collapsed {
     content: '\25b4';
 }
 
+/* sidebar sub-headings text + background color */
 .nav a:hover, .nav li.active > a {
-    background-color: #8D8D8D;
-    color: #f5f5f5;
+    background-color: #ddcfcc;
+    color: #333;
 }
 
 .nav > li.active > a  {
-background-color: #347DBE;
+	background-color: red;
 }
 
 .nav li a {
@@ -459,7 +514,7 @@ ul#mysidebar {
 
 
 .nav ul li a {
-    background-color: #FAFAFA;
+    background-color: #e2dddc;
 }
 
 .nav li a {
@@ -467,7 +522,7 @@ ul#mysidebar {
 }
 
 .nav li a:hover {
-    background-color: #8D8D8D;
+    background-color: #ddcfcc;
 }
 
 .nav ul li a {
@@ -611,7 +666,7 @@ hr.faded {
 }
 
 hr.shaded {
-    height: 12px;
+    height: 0px;
     border: 0;
     margin-top: 70px;
     background: white;
@@ -719,8 +774,9 @@ button.cursorNorm {
 h2  {
     font-size:24px;
     line-height:29px;
-    border-top: 3px solid blue;
-    padding-top: 5px;
+    border-top: 3px solid #BC3908;
+    padding-top: 15px;
+    padding-bottom: 10px;
 }
 
 span.otherProgrammingLanguages {
@@ -1253,15 +1309,19 @@ h4.panel-title {
     }
 }
 
+/* code boxes */
 .input_area pre {
         padding-bottom: 3;
-        margin-top: 10px;
-        background-color: #f5f1e0;
+        margin-top: -15px;
+        //background-color: #f4e6dc;
+				background-color: #f4e7d0;
         border: 0px;
 }
 .output_area pre {
+				//background-color: #f2ece8;
+				background-color: #f2ebde;
         padding-top: 3;
-        margin-top: -25px;
+        margin-top: -15px;
         margin-bottom: 10px;
         border: 0px;
         padding-left: 2em;

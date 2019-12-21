@@ -62,13 +62,14 @@ x[0].shape
 By default, `read_video` returns a list of `np.array`s of shape `(height, width, channels)`. <br>
 However, you can define precisely which frames you'd like to grab in a number of ways. This is done by using either the {`start_idx`, `end_idx`, `frame_stride`} or `target_frames` arguments. 
 
-### 1. Grab the first 50 frames
+### Grab the first `n` frames
 <div class="codecell" markdown="1">
 <div class="input_area" markdown="1">
 
 ```python
-x  = read_video(fname, end_idx=50)
-x2 = read_video(fname, target_frames=(0,50))
+n = 50
+x  = read_video(fname, end_idx=n)
+x2 = read_video(fname, target_frames=(0,n))
 
 len(x)
 len(x) == len(x2)
@@ -95,12 +96,13 @@ len(x) == len(x2)
 
 </div>
 
-### Grab every 5th frame
+### Grab every `n`th frame
 <div class="codecell" markdown="1">
 <div class="input_area" markdown="1">
 
 ```python
-x = read_video(fname, frame_stride=5, end_idx=50)
+n=5
+x = read_video(fname, frame_stride=n, end_idx=50)
 len(x)
 ```
 

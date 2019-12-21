@@ -6,7 +6,7 @@ __all__ = ['__all__', 'read_video', 'read_frames', 'capture', 'get_target_frames
 from .utils import *
 
 #Cell
-__all__ = ['read_video', 'capture', 'as_tensor', 'as_normalised_tensor', 'lapply']
+__all__ = ['read_video', 'read_frames', 'capture', 'as_tensor', 'as_normalised_tensor', 'lapply']
 
 #Cell
 def read_video(fname         : Union[str, cv2.VideoCapture],

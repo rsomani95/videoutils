@@ -18,7 +18,7 @@ __all__ = ['as_tensor', 'as_normalised_tensor',
 #Cell
 
 ## SOURCE --> https://github.com/fastai/fastai/blob/master/fastai/vision/image.py#L14
-def as_tensor(image, dtype:np.dtype = np.float32) -> None:
+def as_tensor(image, dtype:np.dtype = np.float32) -> torch.Tensor:
     "Convert PIL style `image` array to torch style image tensor."
     a = np.asarray(image)
     if a.ndim==2 : a = np.expand_dims(a,2)

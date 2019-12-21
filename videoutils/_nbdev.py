@@ -9,9 +9,9 @@ index = {"__all__": "00_utils.ipynb",
          "bgr2hsv": "00_utils.ipynb",
          "lapply": "00_utils.ipynb",
          "read_video": "01_io.ipynb",
-         "read_all_frames": "01_io.ipynb",
-         "read_specific_frames": "01_io.ipynb",
-         "capture": "01_io.ipynb"}
+         "read_frames": "01_io.ipynb",
+         "capture": "01_io.ipynb",
+         "get_target_frames": "01_io.ipynb"}
 
 modules = ["utils.py",
            "io.py"]

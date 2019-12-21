@@ -3,7 +3,7 @@
 __all__ = ['read_video', 'read_all_frames', 'read_specific_frames', 'capture']
 
 #Cell
-from .utils import *
+from .utils import
 
 #Cell
 

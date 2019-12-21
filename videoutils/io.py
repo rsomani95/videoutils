@@ -25,15 +25,14 @@ def read_video(fname         : Union[str, cv2.VideoCapture],
     * `start_idx`    : index of the frame where you'd like to start reading the file
     * `end_idx`      : index of the frame where you'd like to end reading the file
     * `frame_stride` : after reading the frame, every `frame_stride`th index will be read
-    * `target_frames`: if this arg is used, `start_idx`, `end_idx`, and `frame_stride` are
-                       ignored. Can be an
+    * `target_frames`: if this arg is used, `start_idx`, `end_idx`, and `frame_stride` are ignored. Can be an
+
             - `int`            : returns frame at this index
             - `list`/`np.array`: returns frame at index of each element
             - `tuple`          : a tuple like `(start_idx, end_idx, frame_stride)` where
                                  `frame_stride`is optional. If this is what you want, using the
                                  other args instead of `target_frames` is more flexible.
-    * `apply`         : a function that transforms a single `np.array`
-                        of shape `(height, width, channels)`
+    * `apply`         : a function that transforms a single `np.array` of shape `(height, width, channels)`
     """
     cap    = capture(fname)
     if target_frames is None: target_frames = get_target_frames(fname, start_idx, end_idx, frame_stride)

@@ -45,7 +45,7 @@ summary: "Cinelytics uses OpenCV to read video. The main function is `read_video
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_video" class="doc_header"><code>read_video</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L12" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_video</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>VideoCapture</code>], <strong><code>start_idx</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>end_idx</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>frame_stride</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>target_frames</code></strong>:<code>Union</code>[<code>tuple</code>, <code>list</code>, <code>int</code>, <code>array</code>]=<em><code>None</code></em>, <strong><code>apply</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>)</p>
+<h4 id="read_video" class="doc_header"><code>read_video</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_video</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>VideoCapture</code>], <strong><code>start_idx</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>end_idx</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>frame_stride</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>target_frames</code></strong>:<code>Union</code>[<code>tuple</code>, <code>list</code>, <code>int</code>, <code>array</code>]=<em><code>None</code></em>, <strong><code>resize_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>'resize'</code></em>, <strong><code>cvt_color_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>'bgr2rgb'</code></em>, <strong><code>apply</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Flexible video reader where you can grab frames in different ways
 and return as different dtypes.</p>
@@ -63,7 +63,12 @@ and return as different dtypes.</p>
                        `frame_stride`is optional. If this is what you want, using the
                        other args instead of `target_frames` is more flexible.</code></pre>
 </li>
-<li><code>apply</code>         : a function that transforms a single <code>np.array</code> of shape <code>(height, width, channels)</code></li>
+<li><code>resize_func</code>    : a function that resizes a single <code>np.array</code> of shape <code>(height, width, channels)</code></li>
+<li><code>cvt_color_func</code> : a function that applies a <code>cv2.cvtColor</code> transformation</li>
+<li><code>apply</code>          : a function that transforms a single <code>np.array</code> of shape <code>(height, width, channels)</code>
+<pre><code>               and is called **after** individual frames of the video have been read i.e. just
+               before returning the collection (list/tensor) of frames</code></pre>
+</li>
 </ul>
 
 </div>
@@ -99,7 +104,7 @@ and return as different dtypes.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_frames" class="doc_header"><code>read_frames</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L49" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_frames</code>(<strong><code>cap</code></strong>:<code>VideoCapture</code>, <strong><code>target_frames</code></strong>:<code>Union</code>[<code>tuple</code>, <code>list</code>, <code>int</code>, <code>array</code>])</p>
+<h4 id="read_frames" class="doc_header"><code>read_frames</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L56" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_frames</code>(<strong><code>cap</code></strong>:<code>VideoCapture</code>, <strong><code>target_frames</code></strong>:<code>Union</code>[<code>tuple</code>, <code>list</code>, <code>int</code>, <code>array</code>], <strong><code>resize_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>, <strong><code>cvt_color_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Read specific frames from a <code>cv2.VideoCapture</code> object</p>
 
@@ -131,7 +136,7 @@ and return as different dtypes.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="capture" class="doc_header"><code>capture</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L66" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>capture</code>(<strong><code>x</code></strong>:<code>Union</code>[<code>str</code>, <code>VideoCapture</code>])</p>
+<h4 id="capture" class="doc_header"><code>capture</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L78" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>capture</code>(<strong><code>x</code></strong>:<code>Union</code>[<code>str</code>, <code>VideoCapture</code>])</p>
 </blockquote>
 <p>Ensure <code>cv2.VideoCapture</code> works properly</p>
 
@@ -163,7 +168,7 @@ and return as different dtypes.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_target_frames" class="doc_header"><code>get_target_frames</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_target_frames</code>(<strong><code>file</code></strong>, <strong><code>start</code></strong>, <strong><code>end</code></strong>, <strong><code>stride</code></strong>)</p>
+<h4 id="get_target_frames" class="doc_header"><code>get_target_frames</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L87" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_target_frames</code>(<strong><code>file</code></strong>, <strong><code>start</code></strong>, <strong><code>end</code></strong>, <strong><code>stride</code></strong>)</p>
 </blockquote>
 <p>flexibly get the indixes of the frames you want to grab</p>
 
@@ -180,6 +185,12 @@ and return as different dtypes.</p>
 <p>Helper function for <a href="/io.html#read_video"><code>read_video</code></a></p>
 <hr>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examples">Examples<a class="anchor-link" href="#Examples">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -216,6 +227,46 @@ and return as different dtypes.</p>
 
 <div class="output_text output_subarea output_execute_result">
 <pre>(480, 720, 3)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resizer</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">resize</span><span class="p">,</span> <span class="n">keep_aspect_ratio</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">vid</span> <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="s1">&#39;files/interstellar-waves-edit.mp4&#39;</span><span class="p">,</span> <span class="n">target_frames</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> 
+                 <span class="n">resize_func</span><span class="o">=</span><span class="n">resizer</span><span class="p">)</span>
+
+<span class="n">vid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(960, 1440, 3)</pre>
 </div>
 
 </div>
@@ -316,7 +367,7 @@ and return as different dtypes.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>torch.Size([1, 3, 480, 720])</pre>
+<pre>torch.Size([1, 480, 720, 3])</pre>
 </div>
 
 </div>

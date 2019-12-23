@@ -229,7 +229,7 @@ summary: "Helper Functions that work on individual frames"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x133ad39e8&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x132c83940&gt;</pre>
 </div>
 
 </div>
@@ -398,6 +398,88 @@ summary: "Helper Functions that work on individual frames"
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Resize-Image">Resize Image<a class="anchor-link" href="#Resize-Image">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="resize" class="doc_header"><code>resize</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/utils.py#L47" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>resize</code>(<strong><code>image</code></strong>, <strong><code>height</code></strong>=<em><code>None</code></em>, <strong><code>width</code></strong>=<em><code>None</code></em>, <strong><code>keep_aspect_ratio</code></strong>=<em><code>True</code></em>, <strong><code>scale_factor</code></strong>=<em><code>1.0</code></em>)</p>
+</blockquote>
+<p>Resize by <code>scale_factor</code> if preserving aspect ratio else
+resize by custom <code>height</code> and <code>width</code></p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># scale_factor = 1. by default</span>
+<span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">keep_aspect_ratio</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(480, 720, 3)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(720, 1080, 3)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(100, 200, 3)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 </div>
  

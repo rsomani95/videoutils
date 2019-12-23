@@ -7,7 +7,7 @@ from .utils import *
 from functools import partial
 
 #Cell
-__all__ = ['read_video', 'read_frames', 'get_target_frames', 'capture', 'as_tensor', 'resize', 'lapply']
+__all__ = ['read_video', 'read_frames', 'get_target_frames', 'capture', 'as_tensor', 'resize', 'lapply', 'bgr2rgb', 'bgr2hsv']
 
 #Cell
 def read_video(fname          : Union[str, cv2.VideoCapture],

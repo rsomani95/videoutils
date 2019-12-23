@@ -4,7 +4,6 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"__all__": "01_io.ipynb",
          "as_tensor": "00_utils.ipynb",
-         "as_normalised_tensor": "00_utils.ipynb",
          "bgr2rgb": "00_utils.ipynb",
          "bgr2hsv": "00_utils.ipynb",
          "lapply": "00_utils.ipynb",

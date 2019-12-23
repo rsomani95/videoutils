@@ -96,6 +96,8 @@ len(x) == len(x2)
 
 </div>
 
+---
+
 ### Grab every `n`th frame
 <div class="codecell" markdown="1">
 <div class="input_area" markdown="1">
@@ -140,6 +142,8 @@ len(x)
 </div>
 
 </div>
+
+---
 
 ### Grab frames at specific indices
 <div class="codecell" markdown="1">
@@ -195,29 +199,11 @@ len(x) == len(x2)
 
 </div>
 
+---
+
 ### Return as `torch.Tensor`
 
 You can pass any function that transforms a `np.array` of shape `(height, width, channels)` to the `apply` argument. `Videoutils` provides `as_tensor` for convenience -- if you use this function, `read_video` will automatically call `torch.stack` and return the collection of frames as a 4D tensor, else it will return a `list` of 3D arrays/tensors.
-<div class="codecell" markdown="1">
-<div class="input_area" markdown="1">
-
-```python
-xx = partial(as_tensor)
-```
-
-</div>
-<div class="output_area" markdown="1">
-
-
-
-
-    functools.partial
-
-
-
-</div>
-
-</div>
 <div class="codecell" markdown="1">
 <div class="input_area" markdown="1">
 
@@ -261,6 +247,8 @@ x.mean(), x2.mean()
 </div>
 
 </div>
+
+---
 
 ### Resize Video
 
@@ -331,3 +319,5 @@ x.shape
 </div>
 
 </div>
+
+---

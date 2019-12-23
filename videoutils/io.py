@@ -4,17 +4,20 @@ __all__ = ['__all__', 'read_video', 'read_frames', 'capture', 'get_target_frames
 
 #Cell
 from .utils import *
+from functools import partial
 
 #Cell
-__all__ = ['read_video', 'read_frames', 'get_target_frames', 'capture', 'as_tensor', 'lapply']
+__all__ = ['read_video', 'read_frames', 'get_target_frames', 'capture', 'as_tensor', 'resize', 'lapply']
 
 #Cell
-def read_video(fname         : Union[str, cv2.VideoCapture],
-               start_idx     : Optional[int]=None,
-               end_idx       : Optional[int]=None,
-               frame_stride  : Optional[int]=None,
-               target_frames : Union[tuple, list, int, np.array]=None,
-               apply         : Optional[Callable]=None) -> Union[torch.Tensor, list]:
+def read_video(fname          : Union[str, cv2.VideoCapture],
+               start_idx      : Optional[int]=None,
+               end_idx        : Optional[int]=None,
+               frame_stride   : Optional[int]=None,
+               target_frames  : Union[tuple, list, int, np.array]=None,
+               resize_func    : Optional[Callable]=resize,
+               cvt_color_func : Optional[Callable]=bgr2rgb,
+               apply          : Optional[Callable]=None) -> Union[torch.Tensor, list]:
     """
     Flexible video reader where you can grab frames in different ways
     and return as different dtypes.
@@ -32,11 +35,15 @@ def read_video(fname         : Union[str, cv2.VideoCapture],
             - `tuple`          : a tuple like `(start_idx, end_idx, frame_stride)` where
                                  `frame_stride`is optional. If this is what you want, using the
                                  other args instead of `target_frames` is more flexible.
-    * `apply`         : a function that transforms a single `np.array` of shape `(height, width, channels)`
+    * `resize_func`    : a function that resizes a single `np.array` of shape `(height, width, channels)`
+    * `cvt_color_func` : a function that applies a `cv2.cvtColor` transformation
+    * `apply`          : a function that transforms a single `np.array` of shape `(height, width, channels)`
+                         and is called **after** individual frames of the video have been read i.e. just
+                         before returning the collection (list/tensor) of frames
     """
     cap    = capture(fname)
     if target_frames is None: target_frames = get_target_frames(fname, start_idx, end_idx, frame_stride)
-    frames = read_frames(cap, target_frames)
+    frames = read_frames(cap, target_frames, resize_func, cvt_color_func)
     cap.release()
 
     if apply is not None:
@@ -47,7 +54,9 @@ def read_video(fname         : Union[str, cv2.VideoCapture],
 
 #Cell
 def read_frames(cap: cv2.VideoCapture,
-                target_frames: Union[tuple, list, int, np.array]) -> list:
+                target_frames: Union[tuple, list, int, np.array],
+                resize_func: Optional[Callable]=None,
+                cvt_color_func: Optional[Callable]=None) -> list:
     "Read specific frames from a `cv2.VideoCapture` object"
     if   isinstance(target_frames, tuple) : frame_idxs = np.arange(*target_frames)
     elif isinstance(target_frames, list)  : frame_idxs = target_frames
@@ -58,7 +67,10 @@ def read_frames(cap: cv2.VideoCapture,
     for i in frame_idxs:
         cap.set(cv2.CAP_PROP_POS_FRAMES, i)
         ret, frame = cap.read()
-        if ret==True: frames.append(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)) # return np.array
+        if ret==True:
+            if cvt_color_func is not None: frame = cvt_color_func(frame)
+            if resize_func    is not None: frame = resize_func(frame)
+            frames.append(frame) # return np.array
         else: break
     return frames
 

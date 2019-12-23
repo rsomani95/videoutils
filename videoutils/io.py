@@ -47,7 +47,7 @@ def read_video(fname          : Union[str, cv2.VideoCapture],
     cap.release()
 
     if apply is not None:
-        if apply == as_tensor or as_normalised_tensor: frames = torch.stack(lapply(frames, apply))
+        if apply == as_tensor: frames = torch.stack(lapply(frames, apply))
         else: frames = lapply(frames, apply)
 
     return frames

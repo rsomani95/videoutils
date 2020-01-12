@@ -16,6 +16,6 @@ entries:
       title: Reading Video
       url: /io
     output: web
-    title: videoutils
+    title: readvideo
   output: web
   title: Sidebar

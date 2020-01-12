@@ -16,6 +16,6 @@ index = {"__all__": "01_io.ipynb",
 modules = ["utils.py",
            "io.py"]
 
-git_url = "https://github.com/rsomani95/videoutils/tree/master/"
+git_url = "https://github.com/rsomani95/readvideo/tree/master/"
 
 def custom_doc_links(name): return None

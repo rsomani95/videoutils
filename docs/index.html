@@ -1,10 +1,10 @@
 ---
 
-title: Video Utilities for OpenCV
+title: Read Videos Using OpenCV
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "`videoutils` lets you get rid of writing boilerplate code for reading video and adds some convenience on top of that."
+summary: "`readvideo` lets you get rid of writing boilerplate code for reading video and adds some convenience on top of that."
 ---
 <!--
 
@@ -29,7 +29,7 @@ summary: "`videoutils` lets you get rid of writing boilerplate code for reading 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install videoutils</code></p>
+<p><code>pip install readvideo</code></p>
 
 </div>
 </div>
@@ -45,7 +45,7 @@ summary: "`videoutils` lets you get rid of writing boilerplate code for reading 
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">videoutils.io</span> <span class="kn">import</span> <span class="n">read_video</span><span class="p">,</span> <span class="n">as_tensor</span><span class="p">,</span> <span class="n">bgr2rgb</span><span class="p">,</span> <span class="n">resize</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">readvideo.io</span> <span class="k">import</span> <span class="n">read_video</span><span class="p">,</span> <span class="n">as_tensor</span><span class="p">,</span> <span class="n">bgr2rgb</span><span class="p">,</span> <span class="n">resize</span>
 <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;files/interstellar-waves-edit.mp4&#39;</span>
 </pre></div>
 
@@ -322,7 +322,7 @@ However, you can define precisely which frames you'd like to grab in a number of
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Return-as-torch.Tensor">Return as <code>torch.Tensor</code><a class="anchor-link" href="#Return-as-torch.Tensor">&#182;</a></h3><p>You can pass any function that transforms a <code>np.array</code> of shape <code>(height, width, channels)</code> to the <code>apply</code> argument. <code>Videoutils</code> provides <a href="/utils.html#as_tensor"><code>as_tensor</code></a> for convenience -- if you use this function, <a href="/io.html#read_video"><code>read_video</code></a> will automatically call <code>torch.stack</code> and return the collection of frames as a 4D tensor, else it will return a <code>list</code> of 3D arrays/tensors.</p>
+<h3 id="Return-as-torch.Tensor">Return as <code>torch.Tensor</code><a class="anchor-link" href="#Return-as-torch.Tensor">&#182;</a></h3><p>You can pass any function that transforms a <code>np.array</code> of shape <code>(height, width, channels)</code> to the <code>apply</code> argument. <code>readvideo</code> provides <a href="/utils.html#as_tensor"><code>as_tensor</code></a> for convenience -- if you use this function, <a href="/io.html#read_video"><code>read_video</code></a> will automatically call <code>torch.stack</code> and return the collection of frames as a 4D tensor, else it will return a <code>list</code> of 3D arrays/tensors.</p>
 
 </div>
 </div>
@@ -333,7 +333,7 @@ However, you can define precisely which frames you'd like to grab in a number of
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">partial</span>
 
 <span class="n">x</span>  <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">end_idx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">apply</span><span class="o">=</span><span class="n">as_tensor</span><span class="p">)</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">read_video</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">end_idx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">apply</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">as_tensor</span><span class="p">,</span> <span class="n">normalise</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>

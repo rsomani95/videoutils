@@ -8,21 +8,21 @@
 
 -->
 
-# Video Utilities for OpenCV
+# Read Videos Using OpenCV
 
-> `videoutils` lets you get rid of writing boilerplate code for reading video and adds some convenience on top of that.
+> `readvideo` lets you get rid of writing boilerplate code for reading video and adds some convenience on top of that.
 
 
 ## Install
 
-`pip install videoutils`
+`pip install readvideo`
 
 ## How to use
 <div class="codecell" markdown="1">
 <div class="input_area" markdown="1">
 
 ```python
-from videoutils.io import read_video, as_tensor, bgr2rgb, resize
+from readvideo.io import read_video, as_tensor, bgr2rgb, resize
 fname = 'files/interstellar-waves-edit.mp4'
 ```
 
@@ -203,7 +203,7 @@ len(x) == len(x2)
 
 ### Return as `torch.Tensor`
 
-You can pass any function that transforms a `np.array` of shape `(height, width, channels)` to the `apply` argument. `Videoutils` provides `as_tensor` for convenience -- if you use this function, `read_video` will automatically call `torch.stack` and return the collection of frames as a 4D tensor, else it will return a `list` of 3D arrays/tensors.
+You can pass any function that transforms a `np.array` of shape `(height, width, channels)` to the `apply` argument. `readvideo` provides `as_tensor` for convenience -- if you use this function, `read_video` will automatically call `torch.stack` and return the collection of frames as a 4D tensor, else it will return a `list` of 3D arrays/tensors.
 <div class="codecell" markdown="1">
 <div class="input_area" markdown="1">
 

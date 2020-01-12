@@ -93,7 +93,7 @@ summary: "Helper Functions that work on individual frames"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="as_tensor" class="doc_header"><code>as_tensor</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/utils.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>as_tensor</code>(<strong><code>image</code></strong>, <strong><code>dtype</code></strong>:<code>Union</code>[<code>FloatTensor</code>, <code>HalfTensor</code>, <code>NoneType</code>]=<em><code>'FloatTensor'</code></em>, <strong><code>normalise</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="as_tensor" class="doc_header"><code>as_tensor</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/utils.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>as_tensor</code>(<strong><code>image</code></strong>, <strong><code>dtype</code></strong>:<code>Union</code>[<code>FloatTensor</code>, <code>HalfTensor</code>, <code>NoneType</code>]=<em><code>'FloatTensor'</code></em>, <strong><code>normalise</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Convert numpy array to torch tensor</p>
 
@@ -186,7 +186,7 @@ summary: "Helper Functions that work on individual frames"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="bgr2rgb" class="doc_header"><code>bgr2rgb</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/utils.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>bgr2rgb</code>(<strong><code>x</code></strong>:<code>ndarray</code>)</p>
+<h4 id="bgr2rgb" class="doc_header"><code>bgr2rgb</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/utils.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>bgr2rgb</code>(<strong><code>x</code></strong>:<code>ndarray</code>)</p>
 </blockquote>
 <p>convert cv2 generated image array from BGR to RGB</p>
 
@@ -269,7 +269,7 @@ summary: "Helper Functions that work on individual frames"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="bgr2hsv" class="doc_header"><code>bgr2hsv</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/utils.py#L35" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>bgr2hsv</code>(<strong><code>x</code></strong>:<code>ndarray</code>)</p>
+<h4 id="bgr2hsv" class="doc_header"><code>bgr2hsv</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/utils.py#L35" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>bgr2hsv</code>(<strong><code>x</code></strong>:<code>ndarray</code>)</p>
 </blockquote>
 <p>convert cv2 generated image array from BGR to HSV</p>
 
@@ -340,7 +340,7 @@ summary: "Helper Functions that work on individual frames"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="lapply" class="doc_header"><code>lapply</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/utils.py#L40" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>lapply</code>(<strong><code>x</code></strong>:<code>Any</code>, <strong><code>func</code></strong>:<code>Callable</code>)</p>
+<h4 id="lapply" class="doc_header"><code>lapply</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/utils.py#L40" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>lapply</code>(<strong><code>x</code></strong>:<code>Any</code>, <strong><code>func</code></strong>:<code>Callable</code>)</p>
 </blockquote>
 <p>Apply <code>func</code> to each element in list <code>x</code></p>
 
@@ -417,7 +417,7 @@ summary: "Helper Functions that work on individual frames"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="resize" class="doc_header"><code>resize</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/utils.py#L47" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>resize</code>(<strong><code>image</code></strong>, <strong><code>height</code></strong>=<em><code>None</code></em>, <strong><code>width</code></strong>=<em><code>None</code></em>, <strong><code>keep_aspect_ratio</code></strong>=<em><code>True</code></em>, <strong><code>scale_factor</code></strong>=<em><code>1.0</code></em>)</p>
+<h4 id="resize" class="doc_header"><code>resize</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/utils.py#L47" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>resize</code>(<strong><code>image</code></strong>, <strong><code>height</code></strong>=<em><code>None</code></em>, <strong><code>width</code></strong>=<em><code>None</code></em>, <strong><code>keep_aspect_ratio</code></strong>=<em><code>True</code></em>, <strong><code>scale_factor</code></strong>=<em><code>1.0</code></em>)</p>
 </blockquote>
 <p>Resize by <code>scale_factor</code> if preserving aspect ratio else
 resize by custom <code>height</code> and <code>width</code></p>

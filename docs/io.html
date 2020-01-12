@@ -45,7 +45,7 @@ summary: "Cinelytics uses OpenCV to read video. The main function is `read_video
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_video" class="doc_header"><code>read_video</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/io.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_video</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>VideoCapture</code>], <strong><code>start_idx</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>end_idx</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>frame_stride</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>target_frames</code></strong>:<code>Union</code>[<code>tuple</code>, <code>list</code>, <code>int</code>, <code>array</code>]=<em><code>None</code></em>, <strong><code>resize_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>'resize'</code></em>, <strong><code>cvt_color_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>'bgr2rgb'</code></em>, <strong><code>apply</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>)</p>
+<h4 id="read_video" class="doc_header"><code>read_video</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_video</code>(<strong><code>fname</code></strong>:<code>Union</code>[<code>str</code>, <code>VideoCapture</code>], <strong><code>start_idx</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>end_idx</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>frame_stride</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>target_frames</code></strong>:<code>Union</code>[<code>tuple</code>, <code>list</code>, <code>int</code>, <code>array</code>]=<em><code>None</code></em>, <strong><code>resize_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>'resize'</code></em>, <strong><code>cvt_color_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>'bgr2rgb'</code></em>, <strong><code>apply</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Flexible video reader where you can grab frames in different ways
 and return as different dtypes.</p>
@@ -104,7 +104,7 @@ and return as different dtypes.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_frames" class="doc_header"><code>read_frames</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/io.py#L56" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_frames</code>(<strong><code>cap</code></strong>:<code>VideoCapture</code>, <strong><code>target_frames</code></strong>:<code>Union</code>[<code>tuple</code>, <code>list</code>, <code>int</code>, <code>array</code>], <strong><code>resize_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>, <strong><code>cvt_color_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>)</p>
+<h4 id="read_frames" class="doc_header"><code>read_frames</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L56" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_frames</code>(<strong><code>cap</code></strong>:<code>VideoCapture</code>, <strong><code>target_frames</code></strong>:<code>Union</code>[<code>tuple</code>, <code>list</code>, <code>int</code>, <code>array</code>], <strong><code>resize_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>, <strong><code>cvt_color_func</code></strong>:<code>Optional</code>[<code>Callable</code>]=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Read specific frames from a <code>cv2.VideoCapture</code> object</p>
 
@@ -136,7 +136,7 @@ and return as different dtypes.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="capture" class="doc_header"><code>capture</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/io.py#L78" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>capture</code>(<strong><code>x</code></strong>:<code>Union</code>[<code>str</code>, <code>VideoCapture</code>])</p>
+<h4 id="capture" class="doc_header"><code>capture</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L78" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>capture</code>(<strong><code>x</code></strong>:<code>Union</code>[<code>str</code>, <code>VideoCapture</code>])</p>
 </blockquote>
 <p>Ensure <code>cv2.VideoCapture</code> works properly</p>
 
@@ -168,7 +168,7 @@ and return as different dtypes.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_target_frames" class="doc_header"><code>get_target_frames</code><a href="https://github.com/rsomani95/readvideo/tree/master/readvideo/io.py#L87" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_target_frames</code>(<strong><code>file</code></strong>, <strong><code>start</code></strong>, <strong><code>end</code></strong>, <strong><code>stride</code></strong>)</p>
+<h4 id="get_target_frames" class="doc_header"><code>get_target_frames</code><a href="https://github.com/rsomani95/videoutils/tree/master/videoutils/io.py#L87" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_target_frames</code>(<strong><code>file</code></strong>, <strong><code>start</code></strong>, <strong><code>end</code></strong>, <strong><code>stride</code></strong>)</p>
 </blockquote>
 <p>flexibly get the indixes of the frames you want to grab</p>
 

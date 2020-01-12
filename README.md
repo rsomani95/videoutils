@@ -22,7 +22,7 @@
 <div class="input_area" markdown="1">
 
 ```python
-from readvideo.io import read_video, as_tensor, bgr2rgb, resize
+from videoutils.io import read_video, as_tensor, bgr2rgb, resize
 fname = 'files/interstellar-waves-edit.mp4'
 ```
 

@@ -1,10 +1,10 @@
 ---
 
-title: Read Videos Using OpenCV
+title: Video Utilities for OpenCV
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "`readvideo` lets you get rid of writing boilerplate code for reading video and adds some convenience on top of that."
+summary: "`videoutils` lets you get rid of writing boilerplate code for reading video and adds some convenience on top of that."
 ---
 <!--
 
@@ -29,7 +29,7 @@ summary: "`readvideo` lets you get rid of writing boilerplate code for reading v
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install readvideo</code></p>
+<p><code>pip install videoutils</code></p>
 
 </div>
 </div>
@@ -322,7 +322,7 @@ However, you can define precisely which frames you'd like to grab in a number of
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Return-as-torch.Tensor">Return as <code>torch.Tensor</code><a class="anchor-link" href="#Return-as-torch.Tensor">&#182;</a></h3><p>You can pass any function that transforms a <code>np.array</code> of shape <code>(height, width, channels)</code> to the <code>apply</code> argument. <code>readvideo</code> provides <a href="/utils.html#as_tensor"><code>as_tensor</code></a> for convenience -- if you use this function, <a href="/io.html#read_video"><code>read_video</code></a> will automatically call <code>torch.stack</code> and return the collection of frames as a 4D tensor, else it will return a <code>list</code> of 3D arrays/tensors.</p>
+<h3 id="Return-as-torch.Tensor">Return as <code>torch.Tensor</code><a class="anchor-link" href="#Return-as-torch.Tensor">&#182;</a></h3><p>You can pass any function that transforms a <code>np.array</code> of shape <code>(height, width, channels)</code> to the <code>apply</code> argument. <code>videoutils</code> provides <a href="/utils.html#as_tensor"><code>as_tensor</code></a> for convenience -- if you use this function, <a href="/io.html#read_video"><code>read_video</code></a> will automatically call <code>torch.stack</code> and return the collection of frames as a 4D tensor, else it will return a <code>list</code> of 3D arrays/tensors.</p>
 
 </div>
 </div>

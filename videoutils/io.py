@@ -90,7 +90,8 @@ def get_target_frames(x      : Union[str, Path, cv2.VideoCapture],
                       end    : Optional[int]=None,
                       stride : Optional[int]=None) -> np.array:
     "flexibly get the indices of the frames you want to grab"
-    num_frames = capture(file).get(cv2.CAP_PROP_FRAME_COUNT)
+    num_frames = capture(x).get(cv2.CAP_PROP_FRAME_COUNT)
+    num_frames = int(num_frames) # will this lead to bugs?
     if start is not None:
         if end is None: return np.arange(0, num_frames, stride)
         else:           return np.arange(start, end, stride)

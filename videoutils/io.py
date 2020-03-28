@@ -85,7 +85,7 @@ def capture(x: Union[str, Path, cv2.VideoCapture]) -> cv2.VideoCapture:
     return cap
 
 #Cell
-def get_target_frames(file,
+def get_target_frames(x      : Union[str, Path, cv2.VideoCapture],
                       start  : Optional[int]=None,
                       end    : Optional[int]=None,
                       stride : Optional[int]=None) -> np.array:

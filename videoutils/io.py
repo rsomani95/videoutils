@@ -5,6 +5,7 @@ __all__ = ['__all__', 'read_video', 'read_frames', 'capture', 'get_target_frames
 #Cell
 from .utils import *
 from functools import partial
+from pathlib import Path
 
 #Cell
 __all__ = ['read_video', 'read_frames', 'get_target_frames', 'capture', 'as_tensor', 'resize', 'lapply', 'bgr2rgb', 'bgr2hsv']
@@ -75,17 +76,20 @@ def read_frames(cap: cv2.VideoCapture,
     return frames
 
 #Cell
-def capture(x: Union[str, cv2.VideoCapture]) -> cv2.VideoCapture:
+def capture(x: Union[str, Path, cv2.VideoCapture]) -> cv2.VideoCapture:
     "Ensure `cv2.VideoCapture` works properly"
-    assert isinstance(x, (str, cv2.VideoCapture)), \
-    f"Expected `str` or `cv2.VideoCapture` but received {type(x)} "
-    cap = cv2.VideoCapture(x) if isinstance(x, str) else x
+    assert isinstance(x, (str, Path, cv2.VideoCapture)), \
+    f"Expected `str`, `Path` or `cv2.VideoCapture` but received {type(x)} "
+    cap = cv2.VideoCapture(str(x)) if isinstance(x, (str, Path)) else x
     assert(cap.isOpened()), f'Failed to open video "{x}"'
     return cap
 
 #Cell
-def get_target_frames(file, start, end, stride):
-    "flexibly get the indixes of the frames you want to grab"
+def get_target_frames(file,
+                      start  : Optional[int]=None,
+                      end    : Optional[int]=None,
+                      stride : Optional[int]=None) -> np.array:
+    "flexibly get the indices of the frames you want to grab"
     num_frames = capture(file).get(cv2.CAP_PROP_FRAME_COUNT)
     if start is not None:
         if end is None: return np.arange(0, num_frames, stride)

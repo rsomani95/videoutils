@@ -11,6 +11,7 @@ from pathlib import Path
 __all__ = ['read_video', 'read_frames', 'get_target_frames', 'capture', 'as_tensor', 'resize', 'lapply', 'bgr2rgb', 'bgr2hsv']
 
 # Cell
+from typing import Collection
 def read_video(fname          : Union[str, cv2.VideoCapture],
                start_idx      : Optional[int]=None,
                end_idx        : Optional[int]=None,
@@ -18,7 +19,7 @@ def read_video(fname          : Union[str, cv2.VideoCapture],
                target_frames  : Union[tuple, list, int, np.array]=None,
                resize_func    : Optional[Callable]=resize,
                cvt_color_func : Optional[Callable]=bgr2rgb,
-               apply          : Optional[Callable]=None) -> Union[torch.Tensor, list]:
+               apply          : Optional[Callable]=None) -> Collection:
     """
     Flexible video reader where you can grab frames in different ways
     and return as different dtypes.

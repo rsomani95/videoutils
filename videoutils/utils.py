@@ -12,7 +12,7 @@ from typing import Any, Union, Optional, Callable
 __all__ = ['resize',
            'bgr2rgb', 'bgr2hsv', 'lapply',
            'Any', 'Union', 'Optional', 'Callable',
-           'np', 'torch', 'imshow', 'cv2']
+           'np', 'imshow', 'cv2']
 
 # Cell
 def bgr2rgb(x: np.ndarray) -> np.ndarray:

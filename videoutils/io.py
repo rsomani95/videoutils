@@ -8,7 +8,7 @@ from functools import partial
 from pathlib import Path
 
 # Cell
-__all__ = ['read_video', 'read_frames', 'get_target_frames', 'capture', 'as_tensor', 'resize', 'lapply', 'bgr2rgb', 'bgr2hsv']
+__all__ = ['read_video', 'read_frames', 'get_target_frames', 'capture', 'resize', 'lapply', 'bgr2rgb', 'bgr2hsv']
 
 # Cell
 from typing import Collection
@@ -49,8 +49,7 @@ def read_video(fname          : Union[str, cv2.VideoCapture],
     cap.release()
 
     if apply is not None:
-        if apply == as_tensor: frames = torch.stack(lapply(frames, apply))
-        else: frames = lapply(frames, apply)
+        frames = lapply(frames, apply)
 
     return frames
 
